@@ -9,6 +9,8 @@ class CustomTextFormFiled extends StatelessWidget {
     this.validator,
     this.isObscureText = false,
     this.keyboardType = TextInputType.text,
+    this.maxLines,
+    this.minLines,
   });
   final TextEditingController controller;
   final Function(String? value)? onChanged;
@@ -16,13 +18,16 @@ class CustomTextFormFiled extends StatelessWidget {
   final bool isObscureText;
   final TextInputType keyboardType;
   final String hint;
+  final int? maxLines;
+  final int? minLines;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
       onChanged: onChanged,
-      maxLines: 1,
+      minLines: minLines,
+      maxLines: maxLines,
       validator: validator,
       obscureText: isObscureText,
       keyboardType: keyboardType,
